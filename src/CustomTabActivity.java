@@ -63,8 +63,8 @@ public class CustomTabActivity extends android.app.Activity
                       }
               )
               {
-                final View contentview = new TextView(this);
-                ((TextView)contentview).setText(ThisTab.Content);
+                final TextView contentview = new TextView(this);
+                contentview.setText(ThisTab.Content);
                 View indicatorview =
                     android.view.LayoutInflater.from(this).inflate(R.layout.tabs_bg, null);
                 ((TextView)indicatorview.findViewById(R.id.tabsText)).setText(ThisTab.Indicator);
