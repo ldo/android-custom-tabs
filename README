@@ -11,4 +11,4 @@ Contents:
         provide a couple more of these--see INSTALL for details)
     README -- this file
     INSTALL -- build/installation instructions
-    COPYING -- licence (GPLv3)
+    LICENSE -- licence (Apache 2.0, same as Google's sample code)
