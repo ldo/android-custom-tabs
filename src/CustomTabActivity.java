@@ -24,11 +24,12 @@ public class CustomTabActivity extends android.app.Activity
 
         for (String TabName : new String[]{"Tab 1", "Tab 2", "Tab 3"})
           {
-            final View contentview = new TextView(this);
+            final View contentview = new TextView(this); /* should really put something into this for show */
             View indicatorview =
                 android.view.LayoutInflater.from(this).inflate(R.layout.tabs_bg, null);
             ((TextView)indicatorview.findViewById(R.id.tabsText)).setText(TabName);
-            android.widget.TabHost.TabSpec setContent =
+            mTabHost.addTab
+              (
                 mTabHost.newTabSpec(TabName)
                     .setIndicator(indicatorview)
                     .setContent
@@ -40,8 +41,8 @@ public class CustomTabActivity extends android.app.Activity
                                 return contentview;
                               } /*createTabContent*/
                           } /*TabContentFactory*/
-                      );
-            mTabHost.addTab(setContent);
+                      )
+              );
           } /*for*/
       } /*onCreate*/
   } /*CustomTabActivity*/
