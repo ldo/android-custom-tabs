@@ -1,5 +1,21 @@
 package com.joshclemm.android.tabs;
 /*
+    Example of how to apply custom styles to tab indicators. Android styling/theming
+    does seem to lead to a proliferation of XML files. Explanation of ones in this
+    project:
+
+        res/layout/tabs_bg.xml
+            -- defines layout of tab indicator, using following drawables.
+        res/drawable/tab_bg_selector.xml
+            -- defines various states of background of tab indicator, selecting
+               from among the following two tab_bg_xxx ones depending on state:
+        res/drawable/tab_bg_selected.xml
+            -- background of tab indicator in “selected” state.
+        res/drawable/tab_bg_unselected.xml
+            -- background of tab indicator in “unselected” state.
+        res/drawable/tab_text_selector.xml
+            -- defines various states of tab indicator text.
+
     Copyright (c) 2010 Josh Clemm
     Copyright 2012 Lawrence D'Oliveiro <ldo@geek-central.gen.nz>
 
