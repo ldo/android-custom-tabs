@@ -38,27 +38,52 @@ public class CustomTabActivity extends android.app.Activity
         mTabHost.setup();
         mTabHost.getTabWidget().setDividerDrawable(R.drawable.tab_divider);
 
-        for (String TabName : new String[]{"Tab 1", "Tab 2", "Tab 3"})
           {
-            final View contentview = new TextView(this); /* should really put something into this for show */
-            View indicatorview =
-                android.view.LayoutInflater.from(this).inflate(R.layout.tabs_bg, null);
-            ((TextView)indicatorview.findViewById(R.id.tabsText)).setText(TabName);
-            mTabHost.addTab
+            class TabDef
+              {
+                public final String Indicator, Content;
+                public TabDef
+                  (
+                    String Indicator,
+                    String Content
+                  )
+                  {
+                    this.Indicator = Indicator;
+                    this.Content = Content;
+                  } /*TabDef*/
+              } /*TabDef*/;
+            for
               (
-                mTabHost.newTabSpec(TabName)
-                    .setIndicator(indicatorview)
-                    .setContent
-                      (
-                        new android.widget.TabHost.TabContentFactory()
-                          {
-                            public View createTabContent(String tag)
+                TabDef ThisTab :
+                    new TabDef[]
+                      {
+                        new TabDef("Tab 1", "Content 1"),
+                        new TabDef("Tab 2", "Content 2"),
+                        new TabDef("Tab 3", "Content 3"),
+                      }
+              )
+              {
+                final View contentview = new TextView(this);
+                ((TextView)contentview).setText(ThisTab.Content);
+                View indicatorview =
+                    android.view.LayoutInflater.from(this).inflate(R.layout.tabs_bg, null);
+                ((TextView)indicatorview.findViewById(R.id.tabsText)).setText(ThisTab.Indicator);
+                mTabHost.addTab
+                  (
+                    mTabHost.newTabSpec(ThisTab.Indicator)
+                        .setIndicator(indicatorview)
+                        .setContent
+                          (
+                            new android.widget.TabHost.TabContentFactory()
                               {
-                                return contentview;
-                              } /*createTabContent*/
-                          } /*TabContentFactory*/
-                      )
-              );
-          } /*for*/
+                                public View createTabContent(String tag)
+                                  {
+                                    return contentview;
+                                  } /*createTabContent*/
+                              } /*TabContentFactory*/
+                          )
+                  );
+              } /*for*/
+          }
       } /*onCreate*/
   } /*CustomTabActivity*/
