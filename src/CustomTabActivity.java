@@ -24,19 +24,13 @@ public class CustomTabActivity extends android.app.Activity {
 	}
 
 	private void setupTab(final View view, final String tag) {
-		View tabview = createTabView(tag);
+		View tabview = android.view.LayoutInflater.from(this).inflate(R.layout.tabs_bg, null);
+		((TextView)tabview.findViewById(R.id.tabsText)).setText(tag);
 
 		android.widget.TabHost.TabSpec setContent = mTabHost.newTabSpec(tag).setIndicator(tabview).setContent(new android.widget.TabHost.TabContentFactory() {
 			public View createTabContent(String tag) {return view;}
 		});
 		mTabHost.addTab(setContent);
 
-	}
-
-	private View createTabView(final String text) {
-		View view = android.view.LayoutInflater.from(this).inflate(R.layout.tabs_bg, null);
-		TextView tv = (TextView) view.findViewById(R.id.tabsText);
-		tv.setText(text);
-		return view;
 	}
 }
