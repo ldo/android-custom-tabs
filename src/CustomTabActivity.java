@@ -23,14 +23,22 @@ public class CustomTabActivity extends android.app.Activity {
 		  } /*for*/
 	}
 
-	private void setupTab(final View view, final String tag) {
-		View tabview = android.view.LayoutInflater.from(this).inflate(R.layout.tabs_bg, null);
-		((TextView)tabview.findViewById(R.id.tabsText)).setText(tag);
-
-		android.widget.TabHost.TabSpec setContent = mTabHost.newTabSpec(tag).setIndicator(tabview).setContent(new android.widget.TabHost.TabContentFactory() {
-			public View createTabContent(String tag) {return view;}
-		});
+	private void setupTab(final View contentview, final String tag) {
+		View indicatorview = android.view.LayoutInflater.from(this).inflate(R.layout.tabs_bg, null);
+		((TextView)indicatorview.findViewById(R.id.tabsText)).setText(tag);
+		android.widget.TabHost.TabSpec setContent =
+			mTabHost.newTabSpec(tag)
+				.setIndicator(indicatorview)
+				.setContent
+				  (
+					new android.widget.TabHost.TabContentFactory()
+					  {
+						public View createTabContent(String tag)
+						  {
+							return contentview;
+						  } /*createTabContent*/
+					  } /*TabContentFactory*/
+				  );
 		mTabHost.addTab(setContent);
-
 	}
 }
