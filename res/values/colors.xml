@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="transparent">#00000000</color>
+    <color name="text">#FFf8f8f8</color>
+  <!-- gradient colours for unselected tab -->
+    <color name="unselected_top">#FF5C5C5C</color>
+    <color name="unselected_middle">#FF424242</color>
+    <color name="unselected_bottom">#FF222222</color>
+  <!-- gradient colours for selected tab -->
+    <color name="selected_top">#FFA8A8A8</color>
+    <color name="selected_middle">#FF7F7F7F</color>
+    <color name="selected_bottom">#FF696969</color>
 </resources>

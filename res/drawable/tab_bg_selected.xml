@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- background drawable for selected tab -->
     <!-- 
     Copyright (c) Josh Clemm 2010
      -->
-<shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="rectangle">
-    <gradient android:startColor="#A8A8A8" android:centerColor="#7F7F7F"
-        android:endColor="#696969" android:angle="-90" />
+<shape
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle"
+>
+    <gradient
+        android:startColor="@color/selected_top"
+        android:centerColor="@color/selected_middle"
+        android:endColor="@color/selected_bottom"
+        android:angle="-90"
+    />
 </shape>
