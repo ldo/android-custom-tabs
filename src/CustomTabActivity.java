@@ -4,16 +4,21 @@ import android.view.View;
 import android.widget.TabHost;
 import android.widget.TextView;
 
-public class CustomTabActivity extends android.app.Activity {
+public class CustomTabActivity extends android.app.Activity
+  {
 
     private TabHost mTabHost;
 
     @Override
-    public void onCreate(android.os.Bundle savedInstanceState) {
+    public void onCreate
+      (
+        android.os.Bundle savedInstanceState
+      )
+      {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-        mTabHost = (TabHost) findViewById(R.id.mytabhost);
+        mTabHost = (TabHost)findViewById(R.id.mytabhost);
         mTabHost.setup();
         mTabHost.getTabWidget().setDividerDrawable(R.drawable.tab_divider);
 
@@ -38,5 +43,5 @@ public class CustomTabActivity extends android.app.Activity {
                       );
             mTabHost.addTab(setContent);
           } /*for*/
-    }
-}
+      } /*onCreate*/
+  } /*CustomTabActivity*/
