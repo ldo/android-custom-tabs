@@ -15,7 +15,7 @@ public class CustomTabActivity extends Activity {
 	private TabHost mTabHost;
 
 	private void setupTabHost() {
-		mTabHost = (TabHost) findViewById(android.R.id.tabhost);
+		mTabHost = (TabHost) findViewById(R.id.mytabhost);
 		mTabHost.setup();
 	}
 
