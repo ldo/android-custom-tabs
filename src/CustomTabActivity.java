@@ -8,23 +8,19 @@ public class CustomTabActivity extends android.app.Activity {
 
 	private TabHost mTabHost;
 
-	private void setupTabHost() {
-		mTabHost = (TabHost) findViewById(R.id.mytabhost);
-		mTabHost.setup();
-	}
-
 	@Override
 	public void onCreate(android.os.Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		// construct the tabhost
 		setContentView(R.layout.main);
 
-		setupTabHost();
+		mTabHost = (TabHost) findViewById(R.id.mytabhost);
+		mTabHost.setup();
 		mTabHost.getTabWidget().setDividerDrawable(R.drawable.tab_divider);
 
-		setupTab(new TextView(this), "Tab 1");
-		setupTab(new TextView(this), "Tab 2");
-		setupTab(new TextView(this), "Tab 3");
+		for (String TabName : new String[]{"Tab 1", "Tab 2", "Tab 3"})
+		  {
+			setupTab(new TextView(this), TabName);
+		  } /*for*/
 	}
 
 	private void setupTab(final View view, final String tag) {
