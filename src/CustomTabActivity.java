@@ -19,26 +19,24 @@ public class CustomTabActivity extends android.app.Activity {
 
 		for (String TabName : new String[]{"Tab 1", "Tab 2", "Tab 3"})
 		  {
-			setupTab(new TextView(this), TabName);
-		  } /*for*/
-	}
-
-	private void setupTab(final View contentview, final String tag) {
-		View indicatorview = android.view.LayoutInflater.from(this).inflate(R.layout.tabs_bg, null);
-		((TextView)indicatorview.findViewById(R.id.tabsText)).setText(tag);
-		android.widget.TabHost.TabSpec setContent =
-			mTabHost.newTabSpec(tag)
-				.setIndicator(indicatorview)
-				.setContent
-				  (
-					new android.widget.TabHost.TabContentFactory()
-					  {
-						public View createTabContent(String tag)
+			final View contentview = new TextView(this);
+			View indicatorview =
+				android.view.LayoutInflater.from(this).inflate(R.layout.tabs_bg, null);
+			((TextView)indicatorview.findViewById(R.id.tabsText)).setText(TabName);
+			android.widget.TabHost.TabSpec setContent =
+				mTabHost.newTabSpec(TabName)
+					.setIndicator(indicatorview)
+					.setContent
+					  (
+						new android.widget.TabHost.TabContentFactory()
 						  {
-							return contentview;
-						  } /*createTabContent*/
-					  } /*TabContentFactory*/
-				  );
-		mTabHost.addTab(setContent);
+							public View createTabContent(String tag)
+							  {
+								return contentview;
+							  } /*createTabContent*/
+						  } /*TabContentFactory*/
+					  );
+			mTabHost.addTab(setContent);
+		  } /*for*/
 	}
 }
