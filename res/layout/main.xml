@@ -17,9 +17,60 @@
     android:layout_height="fill_parent"
 >
     <TabHost
-        android:id="@+id/mytabhost"
+        android:id="@+id/tabhost1"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="50"
+    >
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+        >
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:background="@android:color/black"
+            />
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="0dip"
+                android:layout_marginRight="0dip"
+            />
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="2dip"
+                android:background="@color/selected_bottom"
+            />
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="2dip"
+                android:background="@android:color/black"
+            />
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+            />
+        </LinearLayout>
+    </TabHost>
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Uncustomized tabs:"
+    />
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:background="@android:color/darker_gray"
+    />
+    <TabHost
+        android:id="@+id/tabhost2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="50"
     >
         <LinearLayout
             android:orientation="vertical"

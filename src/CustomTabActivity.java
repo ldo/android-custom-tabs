@@ -4,7 +4,9 @@ package com.joshclemm.android.tabs;
     does seem to lead to a proliferation of XML files. Explanation of ones in this
     project:
 
-        res/layout/tabs_bg.xml
+        res/layout/tabs_bg_plain.xml
+            -- plain tab indicator with no special styles, for comparison.
+        res/layout/tabs_bg_styled.xml
             -- defines layout of tab indicator, using following drawables.
         res/drawable/tab_bg_selector.xml
             -- defines various states of background of tab indicator, selecting
@@ -39,8 +41,6 @@ import android.widget.TextView;
 public class CustomTabActivity extends android.app.Activity
   {
 
-    private TabHost mTabHost;
-
     @Override
     public void onCreate
       (
@@ -49,12 +49,12 @@ public class CustomTabActivity extends android.app.Activity
       {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-
-        mTabHost = (TabHost)findViewById(R.id.mytabhost);
-        mTabHost.setup();
-        mTabHost.getTabWidget().setDividerDrawable(R.drawable.tab_divider);
-
+        for (boolean CustomStyle : new boolean[]{true, false})
           {
+            final TabHost ThisTabHost =
+                (TabHost)findViewById(CustomStyle ? R.id.tabhost1 : R.id.tabhost2);
+            ThisTabHost.setup();
+            ThisTabHost.getTabWidget().setDividerDrawable(R.drawable.tab_divider);
             class TabDef
               {
                 public final String Indicator, Content;
@@ -82,11 +82,15 @@ public class CustomTabActivity extends android.app.Activity
                 final TextView contentview = new TextView(this);
                 contentview.setText(ThisTab.Content);
                 View indicatorview =
-                    android.view.LayoutInflater.from(this).inflate(R.layout.tabs_bg, null);
+                    android.view.LayoutInflater.from(this).inflate
+                      (
+                        CustomStyle ? R.layout.tabs_bg_styled : R.layout.tabs_bg_plain,
+                        null
+                      );
                 ((TextView)indicatorview.findViewById(R.id.tabsText)).setText(ThisTab.Indicator);
-                mTabHost.addTab
+                ThisTabHost.addTab
                   (
-                    mTabHost.newTabSpec(ThisTab.Indicator)
+                    ThisTabHost.newTabSpec(ThisTab.Indicator)
                         .setIndicator(indicatorview)
                         .setContent
                           (
@@ -100,6 +104,6 @@ public class CustomTabActivity extends android.app.Activity
                           )
                   );
               } /*for*/
-          }
+          } /*for*/
       } /*onCreate*/
   } /*CustomTabActivity*/

@@ -1,7 +1,8 @@
 Custom Android Tabs is a demo app that shows how to customize the
 appearance of tab widgets in Android. The code was originally
 written by Josh Clemm, and described here <http://joshclemm.com/blog/?p=136>.
-It was cleaned up a bit by Lawrence D'Oliveiro <ldo@geek-central.gen.nz>.
+It was cleaned up a bit by Lawrence D'Oliveiro <ldo@geek-central.gen.nz>,
+who also added the display of un-customized tabs for comparison.
 
 Contents:
     src/ -- Java sources for the Android app
