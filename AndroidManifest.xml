@@ -15,4 +15,4 @@
 	<uses-sdk android:minSdkVersion="4" />
 	<supports-screens largeScreens="true" normalScreens="true"
 		smallScreens="true" />
-</manifest> 
+</manifest>

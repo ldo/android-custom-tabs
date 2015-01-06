@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- background drawable for unselected tab -->
-    <!-- 
+    <!--
     Copyright (c) Josh Clemm 2010
      -->
 <shape
@@ -9,7 +9,7 @@
 >
     <gradient
         android:startColor="@color/unselected_top"
-        android:centerColor="@color/unselected_middle" 
+        android:centerColor="@color/unselected_middle"
         android:endColor="@color/unselected_bottom"
         android:angle="-90"
     />

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- drawable for various states of tab indicator background -->
-    <!-- 
+    <!--
     Copyright (c) Josh Clemm 2010
      -->
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
@@ -30,4 +30,4 @@
         android:state_pressed="false"
         android:drawable="@android:color/transparent"
     />
-</selector> 
+</selector>
